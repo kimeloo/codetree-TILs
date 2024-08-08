@@ -32,9 +32,9 @@ def findNext(currentLoc:tuple, numMap):
             nextNum = numMap[nextY][nextX]
         except:
             continue
-        if nextNum > numMap[c][r]:
-            # print((nextX, nextY), nextNum)
-            return (nextX, nextY), nextNum
+        if nextNum > numMap[r][c]:
+            # print((nextY, nextX), nextNum)
+            return (nextY, nextX), nextNum
     else:
         return (), -1
 
