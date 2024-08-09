@@ -7,7 +7,7 @@ def inputHandler():
     return numMap, list(map(int, (y,x))), d, n, t
 
 def check(numMap, location, direction, n):
-    dy = [0, 0, -1, 1]  #동서남북
+    dy = [0, 0, 1, -1]  #동서남북
     dx = [1, -1, 0, 0]  #동서남북
     dirMap = {'R':0, 'L':1, 'D':2, 'U':3}
     newY = location[0] + dy[dirMap[direction]]
