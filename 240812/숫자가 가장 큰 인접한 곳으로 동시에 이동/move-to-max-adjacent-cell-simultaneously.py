@@ -42,15 +42,18 @@ def moveNext(befLoc, newLoc, ballMap):
     ballMap[newY][newX] += 1
     return ballMap
 
-def checkCrach(ballMap):
+def checkCrach(ballMap, locations):
     ballCount = 0
     for y, row in enumerate(ballMap):
         for x, value in enumerate(row):
             if value > 1:
                 ballMap[y][x] = 0
+                location = (x, y)
+                while location in locations:
+                    locations.remove(location)
             elif value == 1:
                 ballCount += 1
-    return ballMap, ballCount
+    return ballMap, locations, ballCount
 
 def simulate(ballMap, numMap, locations, n, t):
     timer = -1
@@ -66,8 +69,7 @@ def simulate(ballMap, numMap, locations, n, t):
             ballMap = moveNext(befLoc, newLoc, ballMap)
             newLocations.append(newLoc)
         # print(*ballMap, sep="\n", end="\n\n")         # debug
-        ballMap, ballCount = checkCrach(ballMap)
-        locations = newLocations
+        ballMap, locations, ballCount = checkCrach(ballMap, newLocations)
         timer += 1
     return ballCount
 
