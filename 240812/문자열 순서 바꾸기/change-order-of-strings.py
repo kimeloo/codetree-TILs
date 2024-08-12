@@ -1,3 +1,4 @@
 import sys
-inptstr = sorted(sys.stdin.readlines(),reverse=True)
-print(*inptstr,sep='\n')
+s = sys.stdin.readline().strip()
+t = sys.stdin.readline().strip()
+print(t, s, sep='\n')
