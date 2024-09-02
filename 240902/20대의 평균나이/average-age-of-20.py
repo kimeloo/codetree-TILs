@@ -7,7 +7,7 @@ def main():
         if age >= 30:
             break
         ages.append(age)
-    print('{:.2f}'.format(sum(ages)/len(ages)))
+    print('{:.2f}'.format(float(sum(ages)/len(ages))))
 
 
 
